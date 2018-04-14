@@ -1,0 +1,17 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    {% if errors is not empty %}
+        <div class="alert alert-danger" role="alert">
+            {{ errors.fichierVide }}
+            {{ errors.fichierTaille }}
+            {{ errors.fichierType }}
+        </div>
+    {% endif %}
+    <form action="/add" method="POST" enctype="multipart/form-data">
+        <label for="files">Fichier à uploader :</label>
+        <input type="file" id="files" name="files[]" multiple>
+        <input type="submit" value="Envoyer les fichiers">
+    </form>
+
+{% endblock %}
